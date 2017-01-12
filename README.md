@@ -1,2 +1,3 @@
 # highchartsdemo
-highcharts    demo
+highcharts    demo\
+highcharts 图表学习
