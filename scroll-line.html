@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本曲线图表</title>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="highcharts/highstock.js"></script>
+</head>
+<body>
+<div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+    $(function () {
+        $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=large-dataset.json&callback=?', function(data) {
+            $('#container').highcharts('StockChart', {
+                chart: {
+                    zoomType: 'xy'
+                },
+                title: {
+                    text: 'Scrollbar on Y axis'
+                },
+                subtitle: {
+                    text: 'Zoom in to see the scrollbar'
+                },
+                yAxis: {
+                    scrollbar: {
+                        enabled: true,
+                        showFull: false
+                    }
+                },
+                series: [{
+                    data: data.data,
+                    pointStart: data.pointStart,
+                    pointInterval: data.pointInterval
+                }]
+            });
+        });
+    });
+</script>
+</body>
+</html>
